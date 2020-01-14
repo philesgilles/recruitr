@@ -1,1 +1,16 @@
 <h1>Positions</h1>
+
+<% @positions.each do |position| %>
+  <div class="card mb-3 shadow-sm">
+    <div class="card-body">
+      <h4><%= link_to position.title, position_path(position) %></h4>
+      <p>
+        <%= truncate(position.description, length: 100) %>
+      </p>
+      <div class="position-meta-details">
+      </div>
+        <%= link_to "Edit", edit_position_path(position),class: "btn btn-sm btn-primary"  %>
+        <%= link_to "Delete", position_path(position),class: "btn btn-sm btn-danger", method: :delete, data: {confirm: "Are you sure ?"}  %>
+    </div>
+  </div>
+<% end %>
