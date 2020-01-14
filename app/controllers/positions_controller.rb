@@ -44,7 +44,7 @@ class PositionsController < ApplicationController
         @position = Position.find(params[:id])
     end
     def position_params
-        params.require(:position).permit(:title,:description)
+        params.require(:position).permit(:title,:description,:requirements, :responsibilities)
     end
     
 end

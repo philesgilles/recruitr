@@ -1,1 +1,18 @@
 <h1>Candidates</h1>
+<p>
+  <%= link_to "Create new candidate", new_candidate_path,class: "btn btn-sm btn-success" %>
+</p>
+<% @candidates.each do |candidate| %>
+  <div class="card mb-3 shadow-sm">
+    <div class="card-body">
+      <h4><%= link_to candidate.first_name, candidate_path(candidate) %></h4>
+      <p>
+        <%= candidate.last_name %>
+      </p>
+      <div class="candidate-meta-details">
+      </div>
+      <%= link_to "Edit", edit_candidate_path(candidate),class: "btn btn-sm btn-primary"  %>
+      <%= link_to "Delete", candidate_path(candidate),class: "btn btn-sm btn-danger", method: :delete, data: {confirm: "Are you sure ?"}  %>
+    </div>
+  </div>
+<% end %>
