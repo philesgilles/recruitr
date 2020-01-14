@@ -23,6 +23,15 @@ class PositionsController < ApplicationController
     end
     def edit
     end
+    def update
+        if @position.update(position_params)
+            flash[:success] = "Position was successfully updated"
+            redirect_to position_path(@position)    
+        else
+            render 'edit'
+        end
+        
+    end
     def destroy
         @position.destroy
         flash[:danger] = "position was successfully deleted"
