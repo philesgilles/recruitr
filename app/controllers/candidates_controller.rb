@@ -2,6 +2,7 @@ class CandidatesController < ApplicationController
     before_action :set_candidate, only:[:edit,:update,:show,:destroy]
     def index
         @candidates = Candidate.all
+        @skills = Skill.all
     end
     def show
         
