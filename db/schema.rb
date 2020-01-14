@@ -10,6 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_01_13_152036) do
 
+  create_table "candidate_skills", force: :cascade do |t|
+    t.integer "skill_id"
+    t.integer "candidate_id"
+    t.index ["candidate_id"], name: "index_candidate_skills_on_candidate_id"
+    t.index ["skill_id"], name: "index_candidate_skills_on_skill_id"
+  end
+
+  create_table "candidates", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "telephone"
+    t.string "email"
+    t.string "linked_in"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "position_id"
+    t.integer "recruiter_id"
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "recruiters", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "telephone"
+    t.string "email"
+    t.string "linked_in"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "skill_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "candidate_skills", "candidates"
+  add_foreign_key "candidate_skills", "skills"
 end
