@@ -1,1 +1,18 @@
 <h1>Recruiters</h1>
+<p>
+  <%= link_to "Create new recruiter", new_recruiter_path,class: "btn btn-sm btn-success" %>
+</p>
+<% @recruiters.each do |recruiter| %>
+  <div class="card mb-3 shadow-sm">
+    <div class="card-body">
+      <h4><%= link_to recruiter.first_name, recruiter_path(recruiter) %></h4>
+      <p>
+        <%= recruiter.last_name %>
+      </p>
+      <div class="recruiter-meta-details">
+      </div>
+      <%= link_to "Edit", edit_recruiter_path(recruiter),class: "btn btn-sm btn-primary"  %>
+      <%= link_to "Delete", recruiter_path(recruiter),class: "btn btn-sm btn-danger", method: :delete, data: {confirm: "Are you sure ?"}  %>
+    </div>
+  </div>
+<% end %>
