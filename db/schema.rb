@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_14_084535) do
+ActiveRecord::Schema.define(version: 2020_01_14_122609) do
 
   create_table "candidate_skills", force: :cascade do |t|
     t.integer "skill_id"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 2020_01_14_084535) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "requirements"
+    t.text "responsibilities"
   end
 
   create_table "recruiter_skills", force: :cascade do |t|
