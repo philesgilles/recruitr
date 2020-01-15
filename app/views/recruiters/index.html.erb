@@ -5,12 +5,12 @@
 <% @recruiters.each do |recruiter| %>
   <div class="card mb-3 shadow-sm">
     <div class="card-body">
-      <h4><%= link_to recruiter.first_name, recruiter_path(recruiter) %></h4>
+      <h4><%= link_to "#{recruiter.first_name} #{recruiter.last_name}", recruiter_path(recruiter) %></h4>
+      <%= render 'shared/skill-badges', obj: recruiter%>
       <p>
         <%= recruiter.last_name %>
       </p>
       <div class="recruiter-meta-details">
-      <%= render 'shared/skill-badges', obj: recruiter%>
       </div>
       <%= link_to "Edit", edit_recruiter_path(recruiter),class: "btn btn-sm btn-primary"  %>
       <%= link_to "Delete", recruiter_path(recruiter),class: "btn btn-sm btn-danger", method: :delete, data: {confirm: "Are you sure ?"}  %>
