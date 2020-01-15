@@ -1,3 +1,49 @@
 <h2><%= @candidate.first_name %> <%= @candidate.last_name %></h2>
 <%= render 'shared/skill-badges', obj: @candidate%>
-<p><%= @candidate.email %></p>
+
+<div class="row my-4">
+    <div class="col-3 text-right"><b>Name</b> :</div>
+    <div class="col-9"><%= @candidate.first_name %> <%= (@candidate.last_name).upcase %></div>
+
+    <div class="col-3 text-right"><b>Email</b> :</div>
+    <div class="col-9"><%= @candidate.email %></div>
+
+    <div class="col-3 text-right"><b>Telephone</b> :</div>
+    <div class="col-9"><%= @candidate.telephone %></div>
+
+    <div class="col-3 text-right"><b>Linked in</b> :</div>
+    <div class="col-9"><%= link_to @candidate.linked_in, @candidate.linked_in, target: "_blank" %></div>
+
+    <div class="col-3 text-right"><b>Github</b> :</div>
+    <div class="col-9"><%= link_to @candidate.github, @candidate.linked_in, target: "_blank" %></div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <% if @candidate.recruiter_id %>
+        <h4>Selected recruiter:</h4>
+        <p>
+            <%= @candidate.recruiter.first_name %> <%= @candidate.recruiter.last_name %><br/>
+            <%= @candidate.recruiter.email%><br/>
+            <%= @candidate.recruiter.telephone%>
+        </p>
+        <% else %>
+        <h4>Please select a recruiter</h4>
+        <div class="row">
+            <% @recruiters.each do |recruiter|%>
+            <div class="col-4">
+                <div class="card mb-3 shadow-sm">
+                    <div class="card-body">
+                        <h4><%= link_to "#{recruiter.first_name} #{recruiter.last_name}" , recruiter_path(recruiter) %></h4>
+                        <%= render 'shared/skill-badges', obj: recruiter%>
+                        <p class="text-center">
+                            <%= link_to "Select", "#",class: "btn btn-success mt-3" %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        </div>
+        <% end %>
+    </div>
+</div>
