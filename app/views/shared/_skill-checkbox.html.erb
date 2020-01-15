@@ -1,4 +1,30 @@
-<% for skill in Skill.all %>
-    <%= check_box_tag "skills_id[]", skill.id %>
-    <%= skill.name %>
-<% end %>
+<div class="row">
+    <div class="col-3">
+        <u>Position : </u><br/>
+        <% for skill in Skill.where(:skill_type => 0) %>
+            <%= check_box_tag "skills_id[]", skill.id %>
+            <%= skill.name %><br/>
+        <% end %>
+    </div>
+    <div class="col-3">
+        <u>Program language : </u><br/>
+        <% for skill in Skill.where(:skill_type => 1) %>
+            <%= check_box_tag "skills_id[]", skill.id %>
+            <%= skill.name %><br/>
+        <% end %>
+    </div>
+    <div class="col-3">
+        <u>Soft skill : </u><br/>
+        <% for skill in Skill.where(:skill_type => 2) %>
+            <%= check_box_tag "skills_id[]", skill.id %>
+            <%= skill.name %><br/>
+        <% end %>
+    </div>
+    <div class="col-3">
+        <u>Language : </u><br/>
+        <% for skill in Skill.where(:skill_type => 3) %>
+            <%= check_box_tag "skills_id[]", skill.id %>
+            <%= skill.name %><br/>
+        <% end %>
+    </div>
+    </div>
