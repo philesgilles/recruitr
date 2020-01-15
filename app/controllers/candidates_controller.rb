@@ -16,7 +16,6 @@ class CandidatesController < ApplicationController
         @candidate = Candidate.new(candidate_params)
         if @candidate.save
             skill_params.each do |skill|
-                debugger
                 CandidateSkill.create(skill_id:skill,candidate_id:@candidate.id)
             end
             flash[:success] = "Positon was successfully created"
