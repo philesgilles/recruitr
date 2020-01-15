@@ -16,7 +16,7 @@ class CandidatesController < ApplicationController
         @candidate = Candidate.new(candidate_params)
         if @candidate.save
             skill_params.each do |skill|
-                CandidateSkill.create(skill_id:skill,candidate_id:@candidate.id)
+                @candidate.candidate_skill.create(skill_id:skill)
             end
             flash[:success] = "Positon was successfully created"
             redirect_to candidate_path(@candidate) 

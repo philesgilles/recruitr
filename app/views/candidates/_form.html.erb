@@ -11,10 +11,7 @@
       </div>
       <div class="form-group">
         <%= f.label :skills %><br/>
-        <% for skill in Skill.all %>
-        <%= check_box_tag "skills_id[]", skill.id %>
-        <%= skill.name %><br />
-    <% end %>
+        <%= render 'shared/skill-checkbox' %>
       </div>
       <div class="form-group">
         <%= f.label :telephone %>

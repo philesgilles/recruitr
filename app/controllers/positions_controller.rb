@@ -15,6 +15,9 @@ class PositionsController < ApplicationController
 
         @position = Position.new(position_params)
         if @position.save
+            skill_params.each do |skill|
+                @position.position_skill.create(skill_id:skill)
+            end
             flash[:success] = "Positon was successfully created"
             redirect_to position_path(@position)    
         else
@@ -46,5 +49,7 @@ class PositionsController < ApplicationController
     def position_params
         params.require(:position).permit(:title,:description,:requirements, :responsibilities)
     end
-    
+    def skill_params
+        params.require(:skills_id)
+    end
 end

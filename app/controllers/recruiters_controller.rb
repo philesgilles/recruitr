@@ -15,6 +15,9 @@ class RecruitersController < ApplicationController
 
         @recruiter = Recruiter.new(recruiter_params)
         if @recruiter.save
+            skill_params.each do |skill|
+                @recruiter.recruiter_skill.create(skill_id:skill)
+            end
             flash[:success] = "Positon was successfully created"
             redirect_to recruiter_path(@recruiter)    
         else
@@ -45,5 +48,8 @@ class RecruitersController < ApplicationController
     end
     def recruiter_params
         params.require(:recruiter).permit(:first_name,:last_name,:telephone, :email,:linked_in,:recruiter_id,:position_id)
+    end
+    def skill_params
+        params.require(:skills_id)
     end
 end

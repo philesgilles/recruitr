@@ -1,0 +1,4 @@
+<% for skill in Skill.all %>
+    <%= check_box_tag "skills_id[]", skill.id %>
+    <%= skill.name %>
+<% end %>
