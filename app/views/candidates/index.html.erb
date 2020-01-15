@@ -8,13 +8,7 @@
       <div class="card mb-3 shadow-sm">
         <div class="card-body">
           <h4><%= link_to "#{candidate.first_name} #{candidate.last_name}" , candidate_path(candidate) %></h4>
-          <% candidate.candidate_skill.each do |skill|%>
-              <% @skills.each do |skillid|%>
-                <% if skillid.id == skill.id %>
-                  <span class="badge badge-<%= skillid.skill_type %>"><%= skillid.name%></span>
-                <% end %>
-              <%end%>
-          <% end %>
+          <%= render 'shared/skill-badges', obj: candidate%>
           <p>
             <%= candidate.last_name %>
           </p>
