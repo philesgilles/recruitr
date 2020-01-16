@@ -4,5 +4,8 @@ Rails.application.routes.draw do
   resources :positions
   resources :candidates
   resources :recruiters
+
+
+  post '/candidates/:id/add-recruiter/:recruiter', to: 'candidates#add_recruiter'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

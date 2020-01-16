@@ -45,7 +45,7 @@
                         <p>Match Score: <%= r[:score]%></p>
                         <%= render 'shared/skill-badges', obj: r[:recruiter]%>
                         <p class="text-center">
-                            <%= link_to "Select this recruiter", "#",class: "btn btn-primary mt-3" %>
+                            <%= link_to "Select this recruiter", "/candidates/3/add-recruiter/#{r[:recruiter].id}", :method => :post, class: "btn btn-primary mt-3" %>
                         </p>
                     </div>
                 </div>
