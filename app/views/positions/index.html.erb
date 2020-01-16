@@ -7,9 +7,10 @@
     <div class="card-body">
       <h4><%= link_to position.title, position_path(position) %></h4>
       <%= render 'shared/skill-badges', obj: position%>
-      <p>
-        <%= truncate(position.description, length: 100) %>
-      </p>
+      <div class="row">
+        <div class="col-8"><%= truncate(position.description, length: 200) %></div>
+        <div class="col-4 text-right"><p class="lead"><%= pluralize(position.candidates.count, "Candidates")%></p></div>
+      </div>
       <div class="position-meta-details">
       </div>
       <%= link_to "Edit", edit_position_path(position),class: "btn btn-sm btn-primary"  %>

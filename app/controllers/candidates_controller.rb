@@ -47,9 +47,9 @@ class CandidatesController < ApplicationController
         @candidate = Candidate.find(params[:id])
     end
     def candidate_params
-        params.require(:candidate).permit(:first_name,:last_name,:telephone, :email,:linked_in,:github,:recruiter_id,:position_id)
+        params.require(:candidate).permit(:first_name,:last_name,:telephone, :email,:linked_in,:github,:position_id)
     end
     def skill_params
-        params.require(:skills_id)
+        params.require(:skills_id).permit([])
     end
 end

@@ -8,11 +8,11 @@
       <div class="card mb-3 shadow-sm">
         <div class="card-body">
           <h4><%= link_to "#{candidate.first_name} #{candidate.last_name}" , candidate_path(candidate) %></h4>
-          <%= render 'shared/skill-badges', obj: candidate%>
-          <p>
-            <%= candidate.last_name %>
+          <p class="lead">
+            <%= candidate.position ? candidate.position.title : nil %>
           </p>
-          <div class="candidate-meta-details">
+          <div class="candidate-meta-details mb-2">
+             <%= render 'shared/skill-badges', obj: candidate%>
           </div>
           <%= link_to "Edit", edit_candidate_path(candidate),class: "btn btn-sm btn-primary"  %>
           <%= link_to "Delete", candidate_path(candidate),class: "btn btn-sm btn-danger", method: :delete, data: {confirm: "Are you sure ?"}  %>
