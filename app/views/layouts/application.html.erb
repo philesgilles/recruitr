@@ -5,15 +5,19 @@
     <%= favicon_link_tag asset_path('icon.png') %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/css/mdb.min.css" rel="stylesheet">
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
     <%= render 'layouts/navigation' %>
-    <%= render 'layouts/messages' %>
-    <div class="container">
-      <%= yield %>
+    <div class="all">
+      <%= render 'layouts/messages' %>
+      <div class="container">
+        <%= yield %>
+      </div>
+      <%= debug(params) if Rails.env.development? %>
     </div>
-     <%= debug(params) if Rails.env.development? %>
   </body>
 </html>

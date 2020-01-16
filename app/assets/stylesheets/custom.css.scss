@@ -1,23 +1,34 @@
 @import "bootstrap/dist/css/bootstrap";
-.container {
-  margin-top: 60px;
+
+h4 > a {
+  color: rgb(24, 85, 105);
 }
+
+.all {
+  margin-top: 80px;
+}
+
 .navbar {
   background-color: #10515b;
 }
 
 .badge-0 {
-  background-color: salmon;
+  background-color: rgb(47, 41, 157);
 }
 
 .badge-1 {
-  background-color: orange;
+  background-color: rgb(225, 135, 1);
 }
 
 .badge-2 {
-  background-color: lightgreen;
+  background-color: rgb(78, 155, 78);
 }
 
 .badge-3 {
-  background-color: lightblue;
+  background-color: rgb(42, 145, 179);
+}
+
+.card-candidate {
+  width: calc(33% - 20px);
+  margin: 0 10px;
 }

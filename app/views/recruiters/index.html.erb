@@ -3,7 +3,7 @@
   <%= link_to "Create new recruiter", new_recruiter_path,class: "btn btn-sm btn-info" %>
 </p>
 <% @recruiters.each do |recruiter| %>
-  <div class="card mb-3 shadow-sm">
+  <div class="card mb-3">
     <div class="card-body">
       <h4><%= link_to "#{recruiter.first_name} #{recruiter.last_name}", recruiter_path(recruiter) %></h4>
       <%= render 'shared/skill-badges', obj: recruiter%>

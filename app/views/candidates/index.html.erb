@@ -2,10 +2,9 @@
 <p>
   <%= link_to "Create new candidate", new_candidate_path,class: "btn btn-sm btn-info" %>
 </p>
-<div class="row">
+<div class="row d-flex">
   <% @candidates.each do |candidate| %>
-    <div class="col-4">
-      <div class="card mb-3 shadow-sm">
+    <div class="card mb-3 card-candidate">
         <div class="card-body">
           <h4><%= link_to "#{candidate.first_name} #{candidate.last_name}" , candidate_path(candidate) %></h4>
           <p class="lead">
@@ -17,7 +16,7 @@
           <%= link_to "Edit", edit_candidate_path(candidate),class: "btn btn-sm btn-primary"  %>
           <%= link_to "Delete", candidate_path(candidate),class: "btn btn-sm btn-danger", method: :delete, data: {confirm: "Are you sure ?"}  %>
         </div>
-      </div>
+      
     </div>
   <% end %>
 </div>
