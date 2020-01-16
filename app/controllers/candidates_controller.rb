@@ -42,7 +42,6 @@ class CandidatesController < ApplicationController
         
     end
     def add_recruiter
-        debugger
         @candidate.recruiter_id = params[:recruiter]
         if @candidate.save
             flash[:success] = "Recruiter was added to candidate"

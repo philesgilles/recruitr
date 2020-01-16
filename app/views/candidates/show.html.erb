@@ -27,7 +27,7 @@
     <div class="col">
     <%# IF Candidate has recruiter %>
         <% if @candidate.recruiter_id %>
-        <h4>Selected recruiter:</h4>
+        <h4>Recruiter :</h4>
         <p>
             <%= @candidate.recruiter.first_name %> <%= @candidate.recruiter.last_name %><br/>
             <%= @candidate.recruiter.email%><br/>
@@ -35,17 +35,17 @@
         </p>
     <%# IF Candidate Doesn't have %>
         <% else %>
-        <h4>Please select a recruiter</h4>
+        <h4>Please select a recruiter :</h4>
         <div class="row">
             <% sort_recruiters(@recruiters,@candidate).each_with_index do |r, i|%>
             <div class="col-12">
-                <div class="card mb-3 shadow-sm">
+                <div class="card mb-3">
                     <div class="card-body">
                         <h4><%= link_to "##{i+1} - #{r[:recruiter].first_name} #{r[:recruiter].last_name}" , recruiter_path(r[:recruiter]) %></h4>
                         <p>Match Score: <%= r[:score]%></p>
                         <%= render 'shared/skill-badges', obj: r[:recruiter]%>
                         <p class="text-center">
-                            <%= link_to "Select this recruiter", "/candidates/3/add-recruiter/#{r[:recruiter].id}", :method => :post, class: "btn btn-primary mt-3" %>
+                            <%= link_to "Select this recruiter", "/candidates/3/add-recruiter/#{r[:recruiter].id}", :method => :post, class: "btn btn-mdb-color mt-3" %>
                         </p>
                     </div>
                 </div>
