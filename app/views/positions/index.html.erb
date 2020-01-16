@@ -2,19 +2,4 @@
 <p>
   <%= link_to "Create new position", new_position_path,class: "btn btn-sm btn-success" %>
 </p>
-<% @positions.each do |position| %>
-  <div class="card mb-3 shadow-sm">
-    <div class="card-body">
-      <h4><%= link_to position.title, position_path(position) %></h4>
-      <%= render 'shared/skill-badges', obj: position%>
-      <div class="row">
-        <div class="col-8"><%= truncate(position.description, length: 200) %></div>
-        <div class="col-4 text-right"><p class="lead"><%= pluralize(position.candidates.count, "Candidates")%></p></div>
-      </div>
-      <div class="position-meta-details">
-      </div>
-      <%= link_to "Edit", edit_position_path(position),class: "btn btn-sm btn-primary"  %>
-      <%= link_to "Delete", position_path(position),class: "btn btn-sm btn-danger", method: :delete, data: {confirm: "Are you sure ?"}  %>
-    </div>
-  </div>
-<% end %>
+<%= render 'position-list'%>

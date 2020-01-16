@@ -1,4 +1,9 @@
 <h1 class="mb-5">Recruit'R</h1>
-<%= link_to 'See positions', positions_path, class: 'btn btn-success shadow' %>
-<%= link_to 'See candidates', candidates_path, class: 'btn btn-primary shadow' %>
-<%= link_to 'See recruiters', recruiters_path, class: 'btn btn-warning shadow' %>
+<div class="row">
+    <div class="col-12 d-flex justify-content-around mb-4">
+        <%= link_to 'See positions', positions_path, class: 'btn-lg btn-info shadow' %>
+        <%= link_to 'See candidates', candidates_path, class: 'btn-lg btn-warning shadow' %>
+        <%= link_to 'See recruiters', recruiters_path, class: 'btn-lg btn-primary shadow' %>
+    </div>
+</div>
+<%= render 'positions/position-list'%>

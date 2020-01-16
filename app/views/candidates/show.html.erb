@@ -37,15 +37,15 @@
         <% else %>
         <h4>Please select a recruiter</h4>
         <div class="row">
-            <% sort_recruiters(@recruiters,@candidate).each do |r|%>
-            <div class="col-4">
+            <% sort_recruiters(@recruiters,@candidate).each_with_index do |r, i|%>
+            <div class="col-12">
                 <div class="card mb-3 shadow-sm">
                     <div class="card-body">
-                        <h4><%= link_to "#{r[:recruiter].first_name} #{r[:recruiter].last_name}" , recruiter_path(r[:recruiter]) %></h4>
+                        <h4><%= link_to "##{i+1} - #{r[:recruiter].first_name} #{r[:recruiter].last_name}" , recruiter_path(r[:recruiter]) %></h4>
                         <p>Match Score: <%= r[:score]%></p>
                         <%= render 'shared/skill-badges', obj: r[:recruiter]%>
                         <p class="text-center">
-                            <%= link_to "Select", "#",class: "btn btn-success mt-3" %>
+                            <%= link_to "Select this recruiter", "#",class: "btn btn-primary mt-3" %>
                         </p>
                     </div>
                 </div>
