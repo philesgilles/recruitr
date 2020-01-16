@@ -62,6 +62,6 @@ class CandidatesController < ApplicationController
         params.require(:candidate).permit(:first_name,:last_name,:telephone, :email,:linked_in,:github,:position_id,:recruiter_id)
     end
     def skill_params
-        params.require(:skills_id).permit([])
+        params.require(:skills_id)
     end
 end
