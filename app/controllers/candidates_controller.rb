@@ -1,5 +1,5 @@
 class CandidatesController < ApplicationController
-    before_action :set_candidate, only:[:edit,:update,:show,:destroy,:add_recruiter]
+    before_action :set_candidate, only:[:edit,:update,:show,:destroy,:add_recruiter,:remove_recruiter]
     def index
         @candidates = Candidate.all
     end
@@ -51,6 +51,17 @@ class CandidatesController < ApplicationController
             redirect_to candidate_path(@candidate)    
         end
     end
+    def remove_recruiter
+        @candidate.recruiter_id = nil
+        if @candidate.save
+            flash[:warning] = "Recruiter was Removed from candidate"
+            redirect_to candidate_path(@candidate)    
+        else 
+            flash[:danger] = "Holy guacamole ! there was a problem !"
+            redirect_to candidate_path(@candidate)    
+        end
+    end
+    
     
 
     private

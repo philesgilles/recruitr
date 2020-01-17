@@ -26,13 +26,27 @@
 <div class="row">
     <div class="col">
     <%# IF Candidate has recruiter %>
-        <% if @candidate.recruiter_id %>
+        <% if @candidate.recruiter_id && @candidate.recruiter_id != 0%>
         <h4>Recruiter :</h4>
-        <p>
-            <%= @candidate.recruiter.first_name %> <%= @candidate.recruiter.last_name %><br/>
-            <%= @candidate.recruiter.email%><br/>
-            <%= @candidate.recruiter.telephone%>
-        </p>
+        <div class="row">
+            <div class="col card">
+            <div class="card-body">
+            <div class="row">
+                <div class="col">
+                    <p>
+                    <%= @candidate.recruiter.first_name %> <%= @candidate.recruiter.last_name %><br/>
+                    <%= @candidate.recruiter.email%><br/>
+                    <%= @candidate.recruiter.telephone%>
+                </p>
+                <%= link_to "remove", "/candidates/3/add-recruiter", :method => :delete, class: "btn btn-sm btn-danger mt-3" %>
+                </div>
+                <div class="col">
+                    <%= link_to "Schedule a meeting", "/candidates/3/add-recruiter", :method => :delete, class: "btn btn-sm btn-indigo mt-3" %>
+                </div>
+            </div>
+            </div>
+            </div>
+        </div>
     <%# IF Candidate Doesn't have %>
         <% else %>
         <h4>Please select a recruiter :</h4>
