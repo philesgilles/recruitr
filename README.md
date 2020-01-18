@@ -2,25 +2,8 @@
 
 [Preview](https://recruitr-dbotic.herokuapp.com/)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+test account:
 
-Things you may want to cover:
+login test@example.com
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+pass : before @example
