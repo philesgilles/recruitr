@@ -9,7 +9,6 @@ class MeetingsController < ApplicationController
         @meeting = Meeting.new
     end
     def create
-        debugger
         @meeting = Meeting.new(meeting_params)
         if @meeting.save
             flash[:success] = "created"
