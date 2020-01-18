@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_15_144435) do
+ActiveRecord::Schema.define(version: 2020_01_18_105443) do
 
   create_table "candidate_skills", force: :cascade do |t|
     t.integer "skill_id"
@@ -30,6 +30,17 @@ ActiveRecord::Schema.define(version: 2020_01_15_144435) do
     t.integer "position_id"
     t.integer "recruiter_id"
     t.string "github"
+  end
+
+  create_table "meeting_tables", force: :cascade do |t|
+    t.string "place"
+    t.datetime "time"
+    t.integer "recruiter_id"
+    t.integer "candidate_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["candidate_id"], name: "index_meeting_tables_on_candidate_id"
+    t.index ["recruiter_id"], name: "index_meeting_tables_on_recruiter_id"
   end
 
   create_table "position_skills", force: :cascade do |t|
@@ -75,6 +86,8 @@ ActiveRecord::Schema.define(version: 2020_01_15_144435) do
 
   add_foreign_key "candidate_skills", "candidates"
   add_foreign_key "candidate_skills", "skills"
+  add_foreign_key "meeting_tables", "candidates"
+  add_foreign_key "meeting_tables", "recruiters"
   add_foreign_key "position_skills", "positions"
   add_foreign_key "position_skills", "skills"
   add_foreign_key "recruiter_skills", "recruiters"

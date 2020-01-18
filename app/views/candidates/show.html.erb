@@ -40,8 +40,10 @@
                 </p>
                 <%= link_to "remove", "/candidates/3/add-recruiter", :method => :delete, class: "btn btn-sm btn-danger mt-3" %>
                 </div>
-                <div class="col">
-                    <%= link_to "Schedule a meeting", "/candidates/3/add-recruiter", :method => :delete, class: "btn btn-sm btn-indigo mt-3" %>
+                <div class="col d-flex align-items-center">
+                    <div>
+                        <%= link_to "Schedule a meeting", {:controller => 'meetings', :action => 'new', :id => @candidate.id }, { :class => 'btn btn-lg btn-indigo' } %>
+                    </div>
                 </div>
             </div>
             </div>

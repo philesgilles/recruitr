@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :positions
   resources :candidates
   resources :recruiters
-
+  resources :meetings
 
   post '/candidates/:id/add-recruiter/:recruiter', to: 'candidates#add_recruiter'
   delete '/candidates/:id/add-recruiter', to: 'candidates#remove_recruiter'
