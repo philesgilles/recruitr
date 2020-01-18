@@ -2,18 +2,29 @@
 
 <p><strong>Candidate : <%= @candidate.first_name%> <%= @candidate.last_name%></strong></p>
 <p><strong>Recruiter : <%= @candidate.recruiter.first_name%> <%= @candidate.recruiter.last_name%></strong></p>
-
-<%= form_for @meeting do |f|%>
+<div class="row">
+    <div class="col-4">
+      <%= form_for @meeting do |f|%>
       <div class="form-group">
-        <%= f.label :time %>
-        <%= f.text_field :time, class: "datepicker" %>
+        <%= f.label :place %>
+        <%= f.text_field :place, class: "form-control" %>
       </div>
-<% end %>
-
-<%= link_to "Save and send email to participants", {:controller => 'meetings', :action => 'create', :id => @candidate.id }, { :class => 'ml-4 btn btn-sm btn-dark-green' } %>
+      <div class="form-group">
+      
+        <%= f.label :time %><br/>
+        <%= f.text_field :time, class: "" %>
+      </div>
+      <%= hidden_field_tag 'meeting[recruiter_id]', @candidate.recruiter.id  %>
+      <%= hidden_field_tag 'meeting[candidate_id]', @candidate.id  %>
+      <div class="form-group">
+        <%= f.submit class: "btn btn-indigo" %>
+      </div>
+    <% end %>
+    </div>
+</div>
 <script>
 $(function() {
-        $('datetimepicker').datetimepicker({
+        $('#meeting_time').datetimepicker({
             dateFormat: 'mm/dd/yyyy hh:MM:ss TT',
             inline:true
         });
