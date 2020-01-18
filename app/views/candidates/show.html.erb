@@ -38,7 +38,7 @@
                     <%= @candidate.recruiter.email%><br/>
                     <%= @candidate.recruiter.telephone%>
                 </p>
-                <%= link_to "remove", "/candidates/3/add-recruiter", :method => :delete, class: "btn btn-sm btn-danger mt-3" %>
+                <%= link_to "remove", "/candidates/#{@candidate.id}/add-recruiter", :method => :delete, class: "btn btn-sm btn-danger mt-3" %>
                 </div>
                 <div class="col d-flex align-items-center">
                     <div>
@@ -61,7 +61,7 @@
                         <p>Match Score: <%= r[:score]%></p>
                         <%= render 'shared/skill-badges', obj: r[:recruiter]%>
                         <p class="text-center">
-                            <%= link_to "Select this recruiter", "/candidates/3/add-recruiter/#{r[:recruiter].id}", :method => :post, class: "btn btn-mdb-color mt-3" %>
+                            <%= link_to "Select this recruiter", "/candidates/#{@candidate.id}/add-recruiter/#{r[:recruiter].id}", :method => :post, class: "btn btn-mdb-color mt-3" %>
                         </p>
                     </div>
                 </div>
