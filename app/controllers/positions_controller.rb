@@ -1,5 +1,6 @@
 class PositionsController < ApplicationController
     before_action :set_position, only:[:edit,:update,:show,:destroy]
+    before_action :require_user
     def index
         @positions = Position.all
     end

@@ -1,5 +1,6 @@
 class RecruitersController < ApplicationController
     before_action :set_recruiter, only:[:edit,:update,:show,:destroy]
+    before_action :require_user
     def index
         @recruiters = Recruiter.all
     end
