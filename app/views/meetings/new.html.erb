@@ -2,12 +2,18 @@
 
 <p><strong>Candidate : <%= @candidate.first_name%> <%= @candidate.last_name%></strong></p>
 <p><strong>Recruiter : <%= @candidate.recruiter.first_name%> <%= @candidate.recruiter.last_name%></strong></p>
-<p>Please select the times to schedule a meeting</p>
-<input id="datetimepicker" type="text" ><br/>
+
+<%= form_for @meeting do |f|%>
+      <div class="form-group">
+        <%= f.label :time %>
+        <%= f.text_field :time, class: "datepicker" %>
+      </div>
+<% end %>
+
 <%= link_to "Save and send email to participants", {:controller => 'meetings', :action => 'create', :id => @candidate.id }, { :class => 'ml-4 btn btn-sm btn-dark-green' } %>
 <script>
 $(function() {
-        $('#datetimepicker').datetimepicker({
+        $('datetimepicker').datetimepicker({
             dateFormat: 'mm/dd/yyyy hh:MM:ss TT',
             inline:true
         });

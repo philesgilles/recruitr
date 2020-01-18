@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2020_01_18_131114) do
     t.string "github"
   end
 
-  create_table "meeting_tables", force: :cascade do |t|
+  create_table "meeting", force: :cascade do |t|
     t.string "place"
     t.datetime "time"
     t.integer "recruiter_id"
