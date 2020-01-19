@@ -11,6 +11,8 @@ class MeetingsController < ApplicationController
     def create
         @meeting = Meeting.new(meeting_params)
         if @meeting.save
+            # Tell the UserMailer to send a welcome email after save
+        MeetingMailer.with(meeting: @meeting).booked_meeting.deliver_later
             flash[:success] = "created"
             redirect_to meeting_path(@meeting) 
         else

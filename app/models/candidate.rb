@@ -5,3 +5,4 @@ class Candidate < ApplicationRecord
     belongs_to :position, optional: true
     has_many :meetings,  dependent: :destroy
 end
+git branch

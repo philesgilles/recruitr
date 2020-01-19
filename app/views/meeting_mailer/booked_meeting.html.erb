@@ -1,0 +1,16 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>New Interview Booked</h1>
+    <p>
+     A new interview meeting has been booked on the <%= @meeting.time %><br>
+     candidate : <%= @meeting.candidate.first_name%> <%= @meeting.candidate.last_name%><br/>
+     Recruiter : <%= @meeting.recruiter.first_name%> <%= @meeting.recruiter.last_name%>
+    </p>
+    <p>Thanks and have a great day!</p>
+  </body>
+</html>
