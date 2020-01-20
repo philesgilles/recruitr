@@ -12,9 +12,11 @@ class MeetingsController < ApplicationController
         @meeting = Meeting.new(meeting_params)
         if @meeting.save
             # Tell the UserMailer to send a welcome email after save
-        MeetingMailer.with(meeting: @meeting).booked_meeting.deliver_later
-            flash[:success] = "created"
-            redirect_to meeting_path(@meeting) 
+            #mailing system
+            #MeetingMailer.with(meeting: @meeting).booked_meeting.deliver_later
+            
+            flash[:success] = "Meeting successfully created"
+            redirect_to candidate_path(@meeting.candidate) 
         else
             render 'new'
         end
@@ -22,7 +24,18 @@ class MeetingsController < ApplicationController
     def show
         
     end
-    
+    def destroy
+        @meeting = Meeting.find(params[:id])
+        @candidate = @meeting.candidate
+        if @meeting.destroy
+            flash[:warning] = "Meeting was successfully deleted"
+            redirect_to candidate_path(@candidate)
+        else 
+            flash[:danger] = "There was a problem"
+            redirect_to candidate_path(@candidate)
+        end
+        
+    end
     
     
     private

@@ -27,12 +27,12 @@
     <div class="col">
     <%# IF Candidate has recruiter %>
         <% if @candidate.recruiter_id && @candidate.recruiter_id != 0%>
-        <h4>Recruiter :</h4>
         <div class="row">
             <div class="col card">
             <div class="card-body">
-            <div class="row">
+            <div class="row d-flex align-items-center">
                 <div class="col">
+                    <h5>Recruiter :</h5>
                     <p>
                     <%= @candidate.recruiter.first_name %> <%= @candidate.recruiter.last_name %><br/>
                     <%= @candidate.recruiter.email%><br/>
@@ -42,7 +42,14 @@
                 </div>
                 <div class="col d-flex align-items-center">
                     <div>
+                    <% if @candidate.meetings.length > 0 %>
+                        <h5>meeting booked :</h5>
+                        <p><strong>place : </strong><%= @candidate.meetings[0].place  %></p>
+                        <p><strong>time : </strong><%= @candidate.meetings[0].time.strftime("%A %d %B at %H:%M")  %></p>
+                        <%= link_to "cancel meeting", meeting_path(@candidate.meetings[0]), :method => :delete, class: "btn btn-sm btn-danger mt-3" %>
+                    <% else %>
                         <%= link_to "Schedule a meeting", {:controller => 'meetings', :action => 'new', :id => @candidate.id }, { :class => 'btn btn-lg btn-indigo' } %>
+                    <% end %>
                     </div>
                 </div>
             </div>
@@ -51,8 +58,8 @@
         </div>
     <%# IF Candidate Doesn't have %>
         <% else %>
-        <h4>Please select a recruiter :</h4>
         <div class="row">
+        <h4>Please select a recruiter :</h4>
             <% sort_recruiters(@recruiters,@candidate).each_with_index do |r, i|%>
             <div class="col-12">
                 <div class="card mb-3">

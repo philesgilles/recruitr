@@ -54,6 +54,8 @@ class CandidatesController < ApplicationController
     end
     def remove_recruiter
         @candidate.recruiter_id = nil
+        @meeting = @candidate.meetings
+        @candidate.meetings.delete(@meeting)
         if @candidate.save
             flash[:warning] = "Recruiter was Removed from candidate"
             redirect_to candidate_path(@candidate)    

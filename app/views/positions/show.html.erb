@@ -1,3 +1,9 @@
 <h2><%= @position.title %></h2>
-<%= render 'shared/skill-badges', obj: @position%>
+<div class="mb-3"><%= render 'shared/skill-badges', obj: @position%></div>
+<p><strong>Description :</strong></p>
 <p><%= @position.description %></p>
+
+<p><strong>Applied candidates :</strong></p>
+<% @position.candidates.each do |candidate|%>
+<%= link_to "#{candidate.first_name} #{candidate.first_name}", candidate_path(candidate),class: "btn btn-brown" %>
+<% end %>

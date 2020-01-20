@@ -3,7 +3,7 @@ class MeetingMailer < ApplicationMailer
     def booked_meeting
     @meeting = params[:meeting]
     #@url  = 'http://example.com/login'
-    mail(:to => (@meeting.candidate.email, @meeting.recruiter.email), subject: 'New interview booked')
+    #mail(:to => (@meeting.candidate.email, @meeting.recruiter.email), subject: 'New interview booked')
     end
     
 end
