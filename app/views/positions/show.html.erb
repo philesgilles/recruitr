@@ -5,5 +5,5 @@
 
 <p><strong>Applied candidates :</strong></p>
 <% @position.candidates.each do |candidate|%>
-<%= link_to "#{candidate.first_name} #{candidate.first_name}", candidate_path(candidate),class: "btn btn-brown" %>
+<%= link_to "#{candidate.first_name} #{candidate.last_name}", candidate_path(candidate),class: "btn btn-brown" %>
 <% end %>
